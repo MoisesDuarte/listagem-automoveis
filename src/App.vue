@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Appbar />
+    <AppBar />
     <main class="container">
       <h1>Veículos</h1>
       <BrandsTable 
@@ -12,18 +12,21 @@
         class="mt-2"
       />
     </main>
+    <AppFooter />
   </div>
 </template>
 
 <script>
-import Appbar from './components/Appbar';
+import AppBar from './components/AppBar';
+import AppFooter from './components/AppFooter';
 import BrandsTable from './components/BrandsTable';
 import ModelsTable from './components/ModelsTable';
 
 export default {
   name: 'App',
   components: {
-    Appbar,
+    AppBar,
+    AppFooter,
     BrandsTable,
     ModelsTable,
   },

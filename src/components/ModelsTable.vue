@@ -1,10 +1,10 @@
 <template>
-  <section id="models">
+  <section>
     <div class="card">
       <header class="card-header">
         Modelos
       </header>
-      <main class="card-content">
+      <main class="card-content" id="models">
         <template v-if="!isLoading">
           <table class="app-table">
             <tr>
@@ -51,19 +51,18 @@ export default {
     fetchModels() {
       this.isLoading = true;
       axios.get(`https://parallelum.com.br/fipe/api/v1/carros/marcas/${this.selectedBrand}/modelos`)
-        .then((res) => {
-          this.models = res.data.modelos;
+        .then((res) => {    
+          this.models =  res.data.modelos;      
           this.isLoading = false;
+          this.scrollIntoTable();
         })
         .catch((err) => {
           alert(`Erro ao realizar fetch:\n ${err}`);
           this.isLoading = false;
         });
-      this.scrollIntoTable();
     },
     scrollIntoTable() {
-      let el = document.getElementById('models');
-      el.scrollIntoView(false);
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
     },
   },
   mounted() {
