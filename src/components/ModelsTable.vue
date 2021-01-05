@@ -49,12 +49,12 @@ export default {
   },
   methods: {
     fetchModels() {
+      this.scrollIntoTable();
       this.isLoading = true;
       axios.get(`https://parallelum.com.br/fipe/api/v1/carros/marcas/${this.selectedBrand}/modelos`)
-        .then((res) => {    
+        .then((res) => {  
           this.models =  res.data.modelos;      
-          this.isLoading = false;
-          this.scrollIntoTable();
+          this.isLoading = false;    
         })
         .catch((err) => {
           alert(`Erro ao realizar fetch:\n ${err}`);
