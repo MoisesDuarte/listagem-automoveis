@@ -52,7 +52,6 @@ export default {
         })
         .catch((err) => {
           alert(`Erro ao realizar fetch:\n ${err}`);
-          this.isLoading = false;
         });
     },
     selectBrand(id) {
